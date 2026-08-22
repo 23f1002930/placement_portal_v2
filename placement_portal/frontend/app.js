@@ -1,0 +1,36 @@
+const {createApp}=Vue;
+createApp({
+ data:()=>({user:null,loading:true,alert:null,authMode:'login',form:{},page:'dashboard',data:{},items:[],search:'',showCreate:false,timer:null,profile:{},report:{applications_by_status:{},placement_rate:0},activeDrive:null}),
+ computed:{editableProfile(){return this.user.role==='STUDENT'?['full_name','department','year','cgpa','phone','skills']:['company_name','hr_name','hr_email','hr_phone','website','description']}},
+ methods:{
+  async api(url,opt={}){const r=await fetch('/api'+url,{credentials:'same-origin',headers:opt.body instanceof FormData?{}:{'Content-Type':'application/json'},...opt});const j=await r.json();if(!r.ok)throw Error(j.message);return j.data},
+  flash(text,type='success'){this.alert={text,type};setTimeout(()=>this.alert=null,3500)},
+  badge(s){return 'badge '+({APPROVED:'bg-success',SELECTED:'bg-success',PENDING:'bg-warning text-dark',SHORTLISTED:'bg-info text-dark',REJECTED:'bg-danger',CLOSED:'bg-secondary',APPLIED:'bg-primary'}[s]||'bg-secondary')},
+  async init(){try{this.user=(await this.api('/auth/me')).user;await this.dashboard()}catch(e){}this.loading=false},
+  async submitAuth(){try{if(this.authMode==='login'){this.user=(await this.api('/auth/login',{method:'POST',body:JSON.stringify(this.form)})).user;await this.dashboard()}else{await this.api('/auth/register/'+this.authMode,{method:'POST',body:JSON.stringify(this.form)});this.flash('Registration successful. Please log in.');this.authMode='login';this.form={}}}catch(e){this.flash(e.message,'danger')}},
+  async logout(){await this.api('/auth/logout',{method:'POST'});this.user=null;this.form={}},
+  async dashboard(){this.page='dashboard';this.data=await this.api('/'+this.user.role.toLowerCase()+'/dashboard')},
+  async loadAdmin(kind){this.page=kind==='companies'||kind==='students'?kind:'admin-'+kind;const d=await this.api('/admin/'+kind+'?search='+encodeURIComponent(this.search));this.items=d.items},
+  searchAdmin(){clearTimeout(this.timer);this.timer=setTimeout(()=>this.loadAdmin(this.page.replace('admin-','')),250)},
+  async adminAction(kind,id,action){try{await this.api(`/admin/${kind}/${id}/${action}`,{method:'PATCH'});this.flash('Updated');await this.loadAdmin(kind)}catch(e){this.flash(e.message,'danger')}},
+  confirmAction(kind,id,action){if(confirm(`Confirm ${action}?`))this.adminAction(kind,id,action)},
+  async loadReports(){this.page='reports';this.report=await this.api('/admin/reports/summary')},
+  async loadDrives(){this.page='drives';this.items=(await this.api('/student/drives?search='+encodeURIComponent(this.search))).items},
+  async apply(id){try{await this.api(`/student/drives/${id}/apply`,{method:'POST'});this.flash('Application submitted')}catch(e){this.flash(e.message,'danger')}},
+  async loadCompanyDrives(){this.page='company-drives';this.items=(await this.api('/company/drives')).items},
+  async createDrive(){try{await this.api('/company/drives',{method:'POST',body:JSON.stringify(this.form)});this.form={};this.showCreate=false;this.flash('Drive submitted');await this.loadCompanyDrives()}catch(e){this.flash(e.message,'danger')}},
+  async loadCompanyApplications(id){this.activeDrive=id;this.page='company-applications';this.items=(await this.api(`/company/drives/${id}/applications`)).items},
+  async applicationAction(id,action,body={}){try{await this.api(`/company/applications/${id}/${action}`,{method:'PATCH',body:JSON.stringify(body)});this.flash('Application updated');await this.loadCompanyApplications(this.activeDrive)}catch(e){this.flash(e.message,'danger')}},
+  confirmApplication(id,action){if(confirm(`Confirm ${action}?`))this.applicationAction(id,action)},
+  scheduleInterview(id){const date=prompt('Interview date and time (example: 2026-08-20T10:00:00+05:30)');if(!date)return;const mode=prompt('Interview mode (Online/Offline)','Online');this.applicationAction(id,'interview',{interview_date:date,interview_mode:mode})},
+  async offerLetter(id){try{const response=await fetch(`/api/company/applications/${id}/offer-letter`,{method:'POST',credentials:'same-origin'});if(!response.ok)throw Error('PDF generation failed');const blob=await response.blob();if(blob.type!=='application/pdf')throw Error('Invalid PDF response');const disposition=response.headers.get('Content-Disposition')||'';const match=disposition.match(/filename\*?=(?:UTF-8''|\")?([^\";]+)/i);const filename=match?decodeURIComponent(match[1].replace(/\"/g,'')):`offer_letter_${id}.pdf`;const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=filename;document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);this.flash('Offer letter generated successfully.')}catch(e){this.flash('Unable to generate offer letter. Please try again.','danger')}},
+  async loadApplications(){this.page='applications';this.items=(await this.api('/student/applications')).items},
+  async loadHistory(){this.page='history';this.items=(await this.api('/student/history')).items},
+  async exportCsv(){try{const d=await this.api('/student/export',{method:'POST'});this.flash(d.status==='COMPLETED'?'Export ready':'Export queued; you will be notified when it is ready');if(d.download_url)location.href=d.download_url}catch(e){this.flash(e.message,'danger')}},
+  async loadProfile(){this.page='profile';this.profile=await this.api('/'+this.user.role.toLowerCase()+'/profile')},
+  async saveProfile(){try{await this.api('/'+this.user.role.toLowerCase()+'/profile',{method:'PUT',body:JSON.stringify(this.profile)});this.flash('Profile saved');await this.loadProfile()}catch(e){this.flash(e.message,'danger')}},
+  async uploadResume(){try{const body=new FormData();body.append('resume',this.$refs.resume.files[0]);await this.api('/student/profile/resume',{method:'POST',body});this.flash('Resume uploaded');await this.loadProfile()}catch(e){this.flash(e.message,'danger')}},
+  async loadNotifications(){this.items=(await this.api('/notifications')).items},
+  async readNotification(id){await this.api(`/notifications/${id}/read`,{method:'PATCH'});await this.loadNotifications()}
+ },mounted(){this.init()}
+}).mount('#app');

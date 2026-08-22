@@ -1,0 +1,39 @@
+[2026-08-10T19:53:13.435742] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T19:53:31.207438] TO=reminder@example.test SUBJECT=Placement application deadline
+Application deadline for Graduate Engineer at Audit Systems is 2026-08-11T02:23:31.183676+00:00.
+
+[2026-08-10T19:53:31.213672] TO=auditstudent@example.test SUBJECT=Placement application deadline
+Application deadline for AI Engineer at Audit Systems is 2026-08-10T20:00:00+00:00.
+
+[2026-08-10T19:53:31.214799] TO=reminder@example.test SUBJECT=Placement application deadline
+Application deadline for AI Engineer at Audit Systems is 2026-08-10T20:00:00+00:00.
+
+[2026-08-10T19:53:31.229118] TO=admin@placement.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 2</p><p>Students selected: 1</p><p>Total applications: 3</p>
+
+[2026-08-10T19:54:36.155486] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T20:24:23.097404] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T20:25:53.576752] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T20:33:59.047818] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T21:00:11.740559] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T21:01:04.767926] TO=admin@test.local SUBJECT=Monthly placement report - August 2026
+<h1>Placement Monthly Activity Report - August 2026</h1><p>Drives conducted: 0</p><p>Students applied: 0</p><p>Students selected: 0</p><p>Total applications: 0</p>
+
+[2026-08-10T21:02:26.806917] TO=admin@test.local SUBJECT=Monthly placement report - July 2026
+<!doctype html><html><body><h1>Placement Monthly Activity Report - July 2026</h1><table><tr><th>Metric</th><th>Value</th></tr><tr><td>Drives conducted</td><td>0</td></tr><tr><td>Participating companies</td><td>0</td></tr><tr><td>Students applied</td><td>0</td></tr><tr><td>Students selected</td><td>0</td></tr><tr><td>Total applications</td><td>0</td></tr></table></body></html>
+
+[2026-08-10T21:02:57.784566] TO=admin@test.local SUBJECT=Monthly placement report - July 2026
+<!doctype html><html><body><h1>Placement Monthly Activity Report - July 2026</h1><table><tr><th>Metric</th><th>Value</th></tr><tr><td>Drives conducted</td><td>0</td></tr><tr><td>Participating companies</td><td>0</td></tr><tr><td>Students applied</td><td>0</td></tr><tr><td>Students selected</td><td>0</td></tr><tr><td>Total applications</td><td>0</td></tr></table></body></html>
+

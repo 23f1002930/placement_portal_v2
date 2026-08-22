@@ -1,0 +1,74 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with watchdog (windowsapi)
+ * Debugger is active!
+ * Debugger PIN: 746-398-217
+127.0.0.1 - - [10/Aug/2026 19:24:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:35] "POST /api/auth/register/student HTTP/1.1" 201 -
+127.0.0.1 - - [10/Aug/2026 19:25:35] "POST /api/auth/register/company HTTP/1.1" 201 -
+127.0.0.1 - - [10/Aug/2026 19:25:35] "POST /api/auth/login HTTP/1.1" 401 -
+127.0.0.1 - - [10/Aug/2026 19:25:36] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:36] "GET /api/admin/companies HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:36] "PATCH /api/admin/companies/1/approve HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:36] "POST /api/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:36] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "POST /api/company/drives HTTP/1.1" 201 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "POST /api/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "PATCH /api/admin/drives/1/approve HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "POST /api/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:37] "GET /api/student/drives HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/student/drives/1/apply HTTP/1.1" 201 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/student/drives/1/apply HTTP/1.1" 409 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "PATCH /api/company/applications/1/shortlist HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "PATCH /api/company/applications/1/interview HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "PATCH /api/company/applications/1/select HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "GET /api/student/history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/student/export HTTP/1.1" 202 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "GET /api/student/exports/applications_student_1.csv HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:25:38] "POST /api/auth/logout HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\cibir\\AppData\\Roaming\\Python\\Python314\\site-packages\\redis\\commands\\core.py', reloading
+ * Detected change in 'C:\\Users\\cibir\\AppData\\Roaming\\Python\\Python314\\site-packages\\redis\\client.py', reloading
+ * Detected change in 'C:\\Users\\cibir\\AppData\\Roaming\\Python\\Python314\\site-packages\\redis\\connection.py', reloading
+ * Detected change in 'C:\\Users\\cibir\\AppData\\Roaming\\Python\\Python314\\site-packages\\redis\\retry.py', reloading
+ * Restarting with watchdog (windowsapi)
+ * Debugger is active!
+ * Debugger PIN: 746-398-217
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\__init__.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\domreg.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\minidom.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\minicompat.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\xmlbuilder.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\NodeFilter.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\xml\\dom\\expatbuilder.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\shelve.py', reloading
+ * Detected change in 'C:\\Python314\\Lib\\fileinput.py', reloading
+ * Restarting with watchdog (windowsapi)
+ * Debugger is active!
+ * Debugger PIN: 746-398-217
+127.0.0.1 - - [10/Aug/2026 19:28:15] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [10/Aug/2026 19:28:15] "GET /.env.example HTTP/1.1" 404 -
+127.0.0.1 - - [10/Aug/2026 19:28:15] "GET /config.py HTTP/1.1" 404 -
+127.0.0.1 - - [10/Aug/2026 19:28:15] "GET /instance/placement_portal.db HTTP/1.1" 404 -
+127.0.0.1 - - [10/Aug/2026 19:29:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:29:05] "GET /frontend/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:29:05] "GET /frontend/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:29:06] "GET /api/auth/me HTTP/1.1" 401 -
+127.0.0.1 - - [10/Aug/2026 19:29:06] "GET /favicon.ico HTTP/1.1" 404 -
+ * Detected change in 'C:\\Users\\cibir\\Music\\MAD2\\submission\\placement_portal\\run.py', reloading
+ * Detected change in 'C:\\Users\\cibir\\Music\\MAD2\\submission\\placement_portal\\run.py', reloading
+ * Restarting with watchdog (windowsapi)
+127.0.0.1 - - [10/Aug/2026 19:29:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:30:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:30:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:30:46] "GET /frontend/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:30:46] "GET /frontend/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 19:30:46] "GET /api/auth/me HTTP/1.1" 401 -
+127.0.0.1 - - [10/Aug/2026 19:30:46] "GET /favicon.ico HTTP/1.1" 404 -
